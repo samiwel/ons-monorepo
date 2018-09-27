@@ -13,6 +13,7 @@ if [[ $TRAVIS_BRANCH = "master" ]]; then
 fi
 
 echo "git diff --name-only $commits"
-echo git diff --name-only $commits
+git diff --name-only $commits > files_changed
+cat files_changed
 
 git diff --name-only $commits | sort -u | uniq | grep $1 > /dev/null
