@@ -21,4 +21,8 @@ matrix:
         - env: PROJECT=eq-author-graphql-schema
         - env: PROJECT=eq-publisher
 
-script: if .travis/build-condition.sh $TRAVIS_COMMIT_RANGE $PROJECT; then echo "$PROJECT is being built"; pushd $PROJECT; ./scripts/ci.sh; popd; else echo "$PROJECT is NOT being built"; fi
+before_script:
+    - set -e
+
+script: 
+    - if .travis/build-condition.sh $TRAVIS_COMMIT_RANGE $PROJECT; then echo "$PROJECT is being built"; pushd $PROJECT; ./scripts/ci.sh; popd; else echo "$PROJECT is NOT being built"; fi
