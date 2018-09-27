@@ -1,6 +1,18 @@
-language: generic
-
 sudo: false
+
+services:
+  - docker
+
+language: node_js
+
+node_js:
+  - "8"
+
+cache:
+  yarn: true
+
+addons:
+  chrome: stable
 
 matrix:
     include:
@@ -9,4 +21,4 @@ matrix:
         - env: PROJECT=eq-author-graphql-schema
         - env: PROJECT=eq-publisher
 
-script: if .travis/build-condition.sh $TRAVIS_COMMIT_RANGE $PROJECT; then echo "$PROJECT is being built"; else echo "$PROJECT is NOT being built"; fi
+script: if .travis/build-condition.sh $TRAVIS_COMMIT_RANGE $PROJECT; then echo "$PROJECT is being built"; pushd $PROJECT; ./scripts/ci.sh; popd; else echo "$PROJECT is NOT being built"; fi
