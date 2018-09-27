@@ -6,6 +6,7 @@ if [[ -z $1 ]]; then
     exit 1
 fi
 
+# Can't use commit range on PRs as it doesn't work with forced pushes
 commits="master...$TRAVIS_BRANCH"
 if [[ $TRAVIS_BRANCH = "master" ]]; then
     commits=$TRAVIS_COMMIT_RANGE
