@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-yarn install --froze-lockfile
+yarn install --frozen-lockfile
 
 yarn lint -- --max-warnings=0
