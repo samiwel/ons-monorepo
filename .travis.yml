@@ -1,0 +1,12 @@
+language: generic
+
+sudo: false
+
+matrix:
+    include:
+        - env: PROJECT=eq-author
+        - env: PROJECT=eq-author-api
+        - env: PROJECT=eq-author-graphql-schema
+        - env: PROJECT=eq-publisher
+
+script: if .travis/build-condition.sh $TRAVIS_COMMIT_RANGE $PROJECT; then echo "$PROJECT is being built"; else echo "$PROJECT is NOT being built"; fi
