@@ -12,4 +12,6 @@ if [[ $TRAVIS_BRANCH = "master" ]]; then
     commits=$TRAVIS_COMMIT_RANGE
 fi
 
+echo "git diff --name-only $commits"
+
 git diff --name-only $commits | sort -u | uniq | grep $1 > /dev/null
