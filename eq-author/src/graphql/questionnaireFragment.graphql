@@ -1,0 +1,10 @@
+fragment MinimalQuestionnaire on Questionnaire {
+  sections {
+    id
+    questionnaire {
+      questionnaireInfo {
+        totalSectionCount
+      }
+    }
+  }
+}

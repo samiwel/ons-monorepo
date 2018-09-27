@@ -1,0 +1,29 @@
+query GetQuestionnaire_Piping($id: ID!) {
+  questionnaire(id: $id) {
+    id
+    sections {
+      id
+      displayName
+      pages {
+        ... on QuestionPage {
+          id
+          displayName
+          answers {
+            id
+            label
+            displayName
+            type
+            ... on CompositeAnswer {
+              childAnswers {
+                id
+                label
+                displayName
+                type
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

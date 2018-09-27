@@ -1,0 +1,13 @@
+{
+  "extends": ["eslint-config-eq-author"],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  }
+}

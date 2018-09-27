@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuestionnaireLink should render 1`] = `
+<QuestionnaireLink__StyledLink
+  to="/questionnaire/1"
+/>
+`;
